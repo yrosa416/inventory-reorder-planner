@@ -1,0 +1,48 @@
+<!doctype html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory Reorder Planner — Case Study & Demo</title>
+<style>
+ body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:0;background:#0b0c10;color:#e8eaed;line-height:1.6}
+ .wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+ h1{margin:0 0 12px} .card{background:#11131a;border:1px solid #222;border-radius:16px;padding:18px 20px;margin:16px 0}
+ a{color:#4cc9f0;text-decoration:none} a:hover{text-decoration:underline}
+ code{background:#0f1116;border:1px solid #222;border-radius:6px;padding:2px 6px}
+ img{max-width:100%;height:auto;border:1px solid #222;border-radius:12px;background:#0f1116}
+</style>
+<div class="wrap">
+  <h1>Inventory Reorder Planner</h1>
+  <p>Turns an orders CSV into <b>safety stock</b>, <b>reorder points</b>, and <b>MOQ-aware</b> recommendations. Built in Python (pandas + numpy + openpyxl).</p>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <ul>
+      <li>Clean orders → daily demand per SKU (28-day mean & std)</li>
+      <li>Safety = z × std × √L; ROP = mean × L + safety</li>
+      <li>Target = mean × (L+H) + safety; MOQ/case-pack aware</li>
+      <li>Excel export with tabs: Reorder, DailyDemand, CleanOrders, ConfigUsed</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Flowchart</h2>
+    <p>(If you have <code>flowchart_web.svg</code> in this folder, it will show below.)</p>
+    <img src="flowchart_web.svg" alt="Inventory Reorder flowchart"
+         onerror="this.replaceWith(document.createTextNode('Add flowchart_web.svg to show the diagram here.'))">
+  </div>
+
+  <div class="card">
+    <h2>Notebook Demo</h2>
+    <p>Open the HTML export of the notebook (place the file here named <code>inventory_reorder_planner_notebook.html</code>):</p>
+    <p><a href="inventory_reorder_planner_notebook.html" target="_blank">Open Notebook (HTML)</a></p>
+  </div>
+
+  <div class="card">
+    <h2>Files</h2>
+    <ul>
+      <li><code>reorder_recommendations_2025-08-29.xlsx</code> — latest Excel (after Step 8)</li>
+      <li><code>final_orders.csv</code> — your orders export</li>
+      <li><code>Config_Template__fill_on_hand__lead_time_days__MOQ_.csv</code> — config</li>
+    </ul>
+    <p style="color:#9aa0a6;font-size:14px">Generated 2025-08-29</p>
+  </div>
+</div>
