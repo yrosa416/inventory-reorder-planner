@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+  <style>
+    .box{fill:#11131a;stroke:#2a2e39;stroke-width:2;rx:12;ry:12}
+    .txt{fill:#e8eaed;font:14px system-ui,Segoe UI,Arial}
+    .mut{fill:#9aa0a6;font:12px system-ui,Segoe UI,Arial}
+    .arrow{stroke:#c9d1d9;stroke-width:2;marker-end:url(#a)}
+  </style>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#c9d1d9"/>
+    </marker>
+  </defs>
+  <!-- Row 1 -->
+  <rect x="60"  y="40"  width="300" height="70" class="box"/><text x="210" y="82" text-anchor="middle" class="txt">Orders CSV (final_orders.csv)</text>
+  <rect x="450" y="40"  width="300" height="70" class="box"/><text x="600" y="82" text-anchor="middle" class="txt">Notebook / Script (logic)</text>
+  <rect x="840" y="40"  width="300" height="70" class="box"/><text x="990" y="70" text-anchor="middle" class="txt">Config CSV</text><text x="990" y="90" text-anchor="middle" class="mut">on_hand, lead_time_days, service_level, MOQ</text>
+  <line x1="360" y1="75" x2="450" y2="75" class="arrow"/>
+  <line x1="840" y1="75" x2="750" y2="75" class="arrow"/>
+
+  <!-- Row 2 -->
+  <rect x="450" y="150" width="300" height="60" class="box"/><text x="600" y="186" text-anchor="middle" class="txt">Clean & Validate</text>
+  <line x1="600" y1="110" x2="600" y2="150" class="arrow"/>
+
+  <!-- Row 3 -->
+  <rect x="450" y="240" width="300" height="60" class="box"/><text x="600" y="276" text-anchor="middle" class="txt">Daily Demand per SKU</text>
+  <line x1="600" y1="210" x2="600" y2="240" class="arrow"/>
+
+  <!-- Row 4 -->
+  <rect x="450" y="330" width="300" height="60" class="box"/><text x="600" y="366" text-anchor="middle" class="txt">28-day Stats: mean & std</text>
+  <line x1="600" y1="300" x2="600" y2="330" class="arrow"/>
+
+  <!-- Row 5 -->
+  <rect x="60"  y="420" width="300" height="70" class="box"/><text x="210" y="455" text-anchor="middle" class="txt">Parameters (Config)</text><text x="210" y="475" text-anchor="middle" class="mut">on_hand, L, service→z, MOQ</text>
+  <rect x="450" y="420" width="300" height="70" class="box"/><text x="600" y="455" text-anchor="middle" class="txt">Safety Stock</text><text x="600" y="475" text-anchor="middle" class="mut">z × std_daily × √L</text>
+  <rect x="840" y="420" width="300" height="70" class="box"/><text x="990" y="455" text-anchor="middle" class="txt">Reorder Point (ROP)</text><text x="990" y="475" text-anchor="middle" class="mut">mean×L + safety</text>
+  <line x1="600" y1="390" x2="600" y2="420" class="arrow"/>
+  <line x1="750" y1="455" x2="840" y2="455" class="arrow"/>
+  <line x1="600" y1="360" x2="300" y2="360" class="arrow"/>
+  <line x1="300" y1="360" x2="210" y2="420" class="arrow"/>
+
+  <!-- Row 6 -->
+  <rect x="60"  y="520" width="300" height="70" class="box"/><text x="210" y="555" text-anchor="middle" class="txt">Target Stock (L+H)</text><text x="210" y="575" text-anchor="middle" class="mut">mean×(L+H)+safety</text>
+  <rect x="450" y="520" width="300" height="70" class="box"/><text x="600" y="555" text-anchor="middle" class="txt">Recommendation</text><text x="600" y="575" text-anchor="middle" class="mut">ceil(target−on_hand) → MOQ</text>
+  <rect x="840" y="520" width="300" height="70" class="box"/><text x="990" y="555" text-anchor="middle" class="txt">Status</text><text x="990" y="575" text-anchor="middle" class="mut">REORDER if on_hand ≤ ROP</text>
+  <line x1="990" y1="490" x2="990" y2="520" class="arrow"/>
+  <line x1="360" y1="555" x2="450" y2="555" class="arrow"/>
+  <line x1="750" y1="555" x2="840" y2="555" class="arrow"/>
+
+  <!-- Row 7 -->
+  <rect x="450" y="620" width="300" height="60" class="box"/><text x="600" y="656" text-anchor="middle" class="txt">Action: Create POs</text>
+  <rect x="840" y="620" width="300" height="60" class="box"/><text x="990" y="656" text-anchor="middle" class="txt">Excel Export</text><text x="990" y="674" text-anchor="middle" class="mut">Reorder, Daily, Clean, Config</text>
+  <line x1="600" y1="590" x2="600" y2="620" class="arrow"/>
+  <line x1="990" y1="590" x2="990" y2="620" class="arrow"/>
+
+  <!-- Bottom -->
+  <rect x="450" y="700" width="300" height="60" class="box"/><text x="600" y="736" text-anchor="middle" class="txt">Feedback & Automation</text>
+  <line x1="600" y1="680" x2="600" y2="700" class="arrow"/>
+</svg>
